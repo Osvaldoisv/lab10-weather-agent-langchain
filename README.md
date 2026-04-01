@@ -40,7 +40,7 @@ npm run dev
 With a custom question:
 
 ```bash
-npm run dev -- "What is 25% of 240 and what time is it now?"
+npm run dev -- "¿Qué clima hace en Santiago? y cuánto es 1983 por 132"
 ```
 
 ## Scripts

@@ -2,7 +2,8 @@ import { runAgent } from "./agent/runAgent.js";
 
 async function main(): Promise<void> {
   const input =
-    process.argv.slice(2).join(" ").trim() || "¿Qué clima hace en Santiago?";
+    process.argv.slice(2).join(" ").trim() ||
+    "¿Qué clima hace en Santiago? y cuánto es 1983 por 132";
 
   const output = await runAgent(input, { verbose: true });
   console.log("\nRespuesta del agente:\n");
