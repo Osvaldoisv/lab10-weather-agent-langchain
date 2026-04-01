@@ -243,6 +243,34 @@ async function safeEvaluate(expression: string, timeoutMs = 1000): Promise<strin
 
 La herramienta `current_time` no recibe argumentos del usuario, por lo que su superficie de ataque es mínima. No requiere guardrails adicionales más allá de los generales del executor.
 
+#### 4.3.3 Weather (riesgo bajo-medio)
+
+**Criterios de uso:**
+
+- Invocar únicamente cuando el usuario mencione explícitamente una ciudad.
+- No inferir ciudad desde el contexto de conversación previo.
+- Si no hay ciudad explícita, pedir al usuario que la proporcione.
+
+**Consideraciones de privacidad:**
+
+- La ciudad consultada se envía a WeatherAPI.com (servicio de terceros). No incluir información personal del usuario en el parámetro `city`.
+- La API Key se transmite en la URL; usar HTTPS garantiza que viaje cifrada.
+
+**Manejo de errores esperados:**
+
+| Caso | Respuesta de la herramienta |
+|------|-----------------------------|
+| Ciudad no encontrada (status 400/404) | JSON con `error` y `suggestion` |
+| Error de red / API caída | JSON con `error` y `suggestion` |
+| Respuesta demasiado larga | Truncamiento automático a ≤ 500 chars |
+
+**Limitaciones:**
+
+- Solo cubre clima actual y pronóstico del día en curso.
+- Requiere ciudad explícita en el input (no infiere por ubicación del usuario).
+- La precisión del pronóstico depende de WeatherAPI.com; el agente no valida la exactitud meteorológica.
+- Las recomendaciones de vestuario son orientativas, basadas en umbrales fijos de temperatura y UV.
+
 ---
 
 ### 4.4 AgentExecutor — Límites operativos

@@ -2,8 +2,7 @@ import { runAgent } from "./agent/runAgent.js";
 
 async function main(): Promise<void> {
   const input =
-    process.argv.slice(2).join(" ").trim() ||
-    "¿Cuánto es el 25% de 240 y qué hora es ahora?";
+    process.argv.slice(2).join(" ").trim() || "¿Qué clima hace en Santiago?";
 
   const output = await runAgent(input, { verbose: true });
   console.log("\nRespuesta del agente:\n");
