@@ -1,4 +1,4 @@
-# 10Xbuilder Agents
+<img width="869" height="216" alt="image" src="https://github.com/user-attachments/assets/06dd22ba-9a01-413e-a2f8-13e886bc648c" /># 10Xbuilder Agents
 
 Agent with LangChain and TypeScript (ESM) that uses tools to solve calculations and return the current time.
 
@@ -14,7 +14,6 @@ Agent with LangChain and TypeScript (ESM) that uses tools to solve calculations 
 ```bash
 npm install
 ```
-
 ## Environment setup
 
 This project loads configuration from `env.local` at the repository root.
@@ -42,6 +41,8 @@ With a custom question:
 ```bash
 npm run dev -- "¿Qué clima hace en Santiago? y cuánto es 1983 por 132"
 ```
+Answer:
+<img width="1406" height="150" alt="image" src="https://github.com/user-attachments/assets/28419b34-50c7-4a18-aeed-98163b808baf" />
 
 ## Scripts
 
